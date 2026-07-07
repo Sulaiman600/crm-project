@@ -52,7 +52,10 @@ RUN sed -ri \
 
 # Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache
-RUN apache2ctl -M
+RUN echo "===== Enabled modules =====" && \
+    ls -l /etc/apache2/mods-enabled && \
+    echo "===== MPM files =====" && \
+    ls -l /etc/apache2/mods-enabled/*mpm* || true
 
 # Expose HTTP port
 EXPOSE 80
