@@ -52,6 +52,7 @@ RUN sed -ri \
 
 # Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache
+RUN apache2ctl -M
 
 # Expose HTTP port
 EXPOSE 80
