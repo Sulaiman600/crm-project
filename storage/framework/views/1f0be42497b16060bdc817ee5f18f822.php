@@ -29,7 +29,7 @@
 <?php echo view_render_event('admin.dashboard.index.revenue.after'); ?>
 
 
-<?php if (! $__env->hasRenderedOnce('d0082c51-25fb-486c-8a54-891ba6fee274')): $__env->markAsRenderedOnce('d0082c51-25fb-486c-8a54-891ba6fee274');
+<?php if (! $__env->hasRenderedOnce('2845ca91-1bd7-4c81-ac5a-aaf85bee6cd1')): $__env->markAsRenderedOnce('2845ca91-1bd7-4c81-ac5a-aaf85bee6cd1');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"

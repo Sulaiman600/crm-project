@@ -2,7 +2,7 @@
     <i class="icon-menu lg:hidden cursor-pointer rounded-md p-1.5 text-2xl hover:bg-gray-100 dark:hover:bg-gray-950 max-lg:block"></i>
 </v-sidebar-drawer>
 
-<?php if (! $__env->hasRenderedOnce('494b7628-fc56-4dd1-8c6a-25c7b6947ce2')): $__env->markAsRenderedOnce('494b7628-fc56-4dd1-8c6a-25c7b6947ce2');
+<?php if (! $__env->hasRenderedOnce('88c52240-6880-493a-9109-ac0a5fa530e3')): $__env->markAsRenderedOnce('88c52240-6880-493a-9109-ac0a5fa530e3');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"

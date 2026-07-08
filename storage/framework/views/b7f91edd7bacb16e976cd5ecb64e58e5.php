@@ -2,7 +2,7 @@
     <div class="shimmer h-9 w-9 rounded-full"></div>
 </v-avatar>
 
-<?php if (! $__env->hasRenderedOnce('11fe6958-8795-4874-9a29-c7a804ba922d')): $__env->markAsRenderedOnce('11fe6958-8795-4874-9a29-c7a804ba922d');
+<?php if (! $__env->hasRenderedOnce('0b1be4d9-b0a4-48f9-8d8e-dedb5588cf80')): $__env->markAsRenderedOnce('0b1be4d9-b0a4-48f9-8d8e-dedb5588cf80');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"

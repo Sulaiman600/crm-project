@@ -29,7 +29,7 @@
 <?php echo view_render_event('admin.dashboard.index.open_leads_by_states.after'); ?>
 
 
-<?php if (! $__env->hasRenderedOnce('e919cd51-fc98-4a27-90d3-921456b5e0d0')): $__env->markAsRenderedOnce('e919cd51-fc98-4a27-90d3-921456b5e0d0');
+<?php if (! $__env->hasRenderedOnce('4cf7a6bd-e513-4d37-9c6f-e5877e49e6b3')): $__env->markAsRenderedOnce('4cf7a6bd-e513-4d37-9c6f-e5877e49e6b3');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"

@@ -29,7 +29,7 @@
 <?php echo view_render_event('admin.dashboard.index.top_selling_proudcts.after'); ?>
 
 
-<?php if (! $__env->hasRenderedOnce('40f70d55-685a-4a26-91b9-d8935b40afd5')): $__env->markAsRenderedOnce('40f70d55-685a-4a26-91b9-d8935b40afd5');
+<?php if (! $__env->hasRenderedOnce('a340dde1-46e1-4d6b-b422-30381a53ae6b')): $__env->markAsRenderedOnce('a340dde1-46e1-4d6b-b422-30381a53ae6b');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"

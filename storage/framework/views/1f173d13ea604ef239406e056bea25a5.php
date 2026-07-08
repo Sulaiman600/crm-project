@@ -29,7 +29,7 @@
 <?php echo view_render_event('admin.dashboard.index.total_leads.after'); ?>
 
 
-<?php if (! $__env->hasRenderedOnce('116b308b-1495-4941-ae68-a2ad4c7bac56')): $__env->markAsRenderedOnce('116b308b-1495-4941-ae68-a2ad4c7bac56');
+<?php if (! $__env->hasRenderedOnce('ede66356-246d-4a5b-97b5-9e9af6ab7a64')): $__env->markAsRenderedOnce('ede66356-246d-4a5b-97b5-9e9af6ab7a64');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"

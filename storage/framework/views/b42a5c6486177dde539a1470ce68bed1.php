@@ -1,6 +1,6 @@
 <v-charts-doughnut <?php echo e($attributes); ?>></v-charts-doughnut>
 
-<?php if (! $__env->hasRenderedOnce('2086285e-4686-49dc-9024-194993ad42b5')): $__env->markAsRenderedOnce('2086285e-4686-49dc-9024-194993ad42b5');
+<?php if (! $__env->hasRenderedOnce('2722ef41-b79f-413f-90fe-177ecc2343ec')): $__env->markAsRenderedOnce('2722ef41-b79f-413f-90fe-177ecc2343ec');
 $__env->startPush('scripts'); ?>
     <!-- SEO Vue Component Template -->
     <script

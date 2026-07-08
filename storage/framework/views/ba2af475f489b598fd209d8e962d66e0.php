@@ -101,7 +101,7 @@
     <?php echo view_render_event('admin.dashboard.index.content.after'); ?>
 
 
-    <?php if (! $__env->hasRenderedOnce('3b4fc495-4175-445b-851c-5bc085ba297b')): $__env->markAsRenderedOnce('3b4fc495-4175-445b-851c-5bc085ba297b');
+    <?php if (! $__env->hasRenderedOnce('a3c4cde7-0201-4363-a7a0-868a55785345')): $__env->markAsRenderedOnce('a3c4cde7-0201-4363-a7a0-868a55785345');
 $__env->startPush('scripts'); ?>
 
         <script

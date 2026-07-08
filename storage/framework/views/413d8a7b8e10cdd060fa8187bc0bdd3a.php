@@ -29,7 +29,7 @@
 <?php echo view_render_event('admin.dashboard.index.top_persons.after'); ?>
 
 
-<?php if (! $__env->hasRenderedOnce('1d134a89-2f77-496b-93b1-90c94e20baf1')): $__env->markAsRenderedOnce('1d134a89-2f77-496b-93b1-90c94e20baf1');
+<?php if (! $__env->hasRenderedOnce('802746ea-ba31-4f6d-8bb8-b7618e0237c0')): $__env->markAsRenderedOnce('802746ea-ba31-4f6d-8bb8-b7618e0237c0');
 $__env->startPush('scripts'); ?>
     <script
         type="text/x-template"
