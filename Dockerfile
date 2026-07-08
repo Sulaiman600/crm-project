@@ -33,6 +33,17 @@ WORKDIR /var/www/html
 # Copy project files
 COPY . .
 
+# Create Laravel storage directories BEFORE composer install
+RUN mkdir -p \
+    storage/framework/cache \
+    storage/framework/sessions \
+    storage/framework/views \
+    storage/logs \
+    bootstrap/cache
+
+# Set permissions
+RUN chmod -R 775 storage bootstrap/cache
+
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
@@ -50,12 +61,8 @@ RUN sed -ri \
     /etc/apache2/sites-available/000-default.conf \
     /etc/apache2/apache2.conf
 
-# Set permissions
+# Set ownership
 RUN chown -R www-data:www-data storage bootstrap/cache
-RUN echo "===== Enabled modules =====" && \
-    ls -l /etc/apache2/mods-enabled && \
-    echo "===== MPM files =====" && \
-    ls -l /etc/apache2/mods-enabled/*mpm* || true
 
 # Expose HTTP port
 EXPOSE 80
