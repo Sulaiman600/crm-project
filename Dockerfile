@@ -48,9 +48,6 @@ RUN chmod -R 775 storage bootstrap/cache
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Configure Apache
-RUN a2dismod mpm_event || true
-RUN a2dismod mpm_worker || true
-RUN a2enmod mpm_prefork
 RUN a2enmod rewrite
 
 # Change Apache document root to Laravel's public folder
