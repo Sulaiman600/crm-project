@@ -22,18 +22,17 @@ RUN apt-get update && apt-get install -y \
         calendar \
         mbstring \
         exif \
-        bcmath
+        bcmath \
+    && a2enmod rewrite
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Set working directory
 WORKDIR /var/www/html
 
-# Copy project files
 COPY . .
 
-# Create Laravel storage directories BEFORE composer install
+# Create Laravel directories
 RUN mkdir -p \
     storage/framework/cache \
     storage/framework/sessions \
@@ -41,28 +40,20 @@ RUN mkdir -p \
     storage/logs \
     bootstrap/cache
 
-# Set permissions
 RUN chmod -R 775 storage bootstrap/cache
 
-# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Configure Apache
-RUN a2enmod rewrite
-
-# Change Apache document root to Laravel's public folder
+# Configure Laravel document root
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
 RUN sed -ri \
-    -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+    -e "s!/var/www/html!${APACHE_DOCUMENT_ROOT}!g" \
     /etc/apache2/sites-available/000-default.conf \
     /etc/apache2/apache2.conf
 
-# Set ownership
-RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html
 
-# Expose HTTP port
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["apache2-foreground"]
