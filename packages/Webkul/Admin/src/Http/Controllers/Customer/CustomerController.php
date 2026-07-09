@@ -40,12 +40,20 @@ class CustomerController extends Controller
             'hire_date'         => 'nullable|date',
         ]);
 
-        // Convert empty lead_id to NULL
+        // DEBUG 1: Show exactly what the browser submitted
+        dd([
+            'request_all' => $request->all(),
+            'validated'   => $data,
+        ]);
+
         if (empty($data['lead_id'])) {
             $data['lead_id'] = null;
         }
 
         $data['created_by'] = auth()->guard('user')->id();
+
+        // DEBUG 2: Remove the first dd() above and use this one next
+        // dd($data);
 
         Customer::create($data);
 
@@ -77,7 +85,6 @@ class CustomerController extends Controller
             'hire_date'         => 'nullable|date',
         ]);
 
-        // Convert empty lead_id to NULL
         if (empty($data['lead_id'])) {
             $data['lead_id'] = null;
         }
