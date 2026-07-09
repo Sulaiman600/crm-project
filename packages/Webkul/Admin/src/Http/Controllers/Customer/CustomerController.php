@@ -16,12 +16,14 @@ class CustomerController extends Controller
     public function index(): View
     {
         $customers = Customer::with(['lead', 'creator'])->latest()->paginate(15);
+
         return view('admin::customers.index', compact('customers'));
     }
 
     public function create(): View
     {
         $leads = $this->leadRepository->all();
+
         return view('admin::customers.create', compact('leads'));
     }
 
@@ -38,18 +40,25 @@ class CustomerController extends Controller
             'hire_date'         => 'nullable|date',
         ]);
 
+        // Convert empty lead_id to NULL
+        if (empty($data['lead_id'])) {
+            $data['lead_id'] = null;
+        }
+
         $data['created_by'] = auth()->guard('user')->id();
 
         Customer::create($data);
 
         session()->flash('success', 'Customer created successfully.');
+
         return redirect()->route('admin.customers.index');
     }
 
     public function edit(int $id): View
     {
         $customer = Customer::findOrFail($id);
-        $leads    = $this->leadRepository->all();
+        $leads = $this->leadRepository->all();
+
         return view('admin::customers.edit', compact('customer', 'leads'));
     }
 
@@ -68,16 +77,24 @@ class CustomerController extends Controller
             'hire_date'         => 'nullable|date',
         ]);
 
+        // Convert empty lead_id to NULL
+        if (empty($data['lead_id'])) {
+            $data['lead_id'] = null;
+        }
+
         $customer->update($data);
 
         session()->flash('success', 'Customer updated successfully.');
+
         return redirect()->route('admin.customers.index');
     }
 
     public function destroy(int $id): RedirectResponse
     {
         Customer::findOrFail($id)->delete();
+
         session()->flash('success', 'Customer deleted successfully.');
+
         return redirect()->route('admin.customers.index');
     }
 }
