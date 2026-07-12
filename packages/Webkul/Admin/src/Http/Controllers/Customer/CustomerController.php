@@ -15,7 +15,9 @@ class CustomerController extends Controller
 
     public function index(): View
     {
-        $customers = Customer::with(['lead', 'creator'])->latest()->paginate(15);
+        $customers = Customer::with(['lead', 'creator'])
+            ->latest()
+            ->paginate(15);
 
         return view('admin::customers.index', compact('customers'));
     }
@@ -40,20 +42,11 @@ class CustomerController extends Controller
             'hire_date'         => 'nullable|date',
         ]);
 
-        // DEBUG 1: Show exactly what the browser submitted
-        dd([
-            'request_all' => $request->all(),
-            'validated'   => $data,
-        ]);
-
         if (empty($data['lead_id'])) {
             $data['lead_id'] = null;
         }
 
         $data['created_by'] = auth()->guard('user')->id();
-
-        // DEBUG 2: Remove the first dd() above and use this one next
-        // dd($data);
 
         Customer::create($data);
 
@@ -98,7 +91,9 @@ class CustomerController extends Controller
 
     public function destroy(int $id): RedirectResponse
     {
-        Customer::findOrFail($id)->delete();
+        $customer = Customer::findOrFail($id);
+
+        $customer->delete();
 
         session()->flash('success', 'Customer deleted successfully.');
 
