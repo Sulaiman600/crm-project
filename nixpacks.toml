@@ -3,13 +3,8 @@ nixPkgs = ["php82", "nodejs_20"]
 
 [phases.install]
 cmds = [
-  "php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"",
-  "php composer-setup.php --install-dir=/usr/local/bin --filename=composer",
-  "php /usr/local/bin/composer install --no-dev --optimize-autoloader",
-  "php artisan config:clear",
-  "php artisan cache:clear",
-  "php artisan route:clear",
-  "php artisan view:clear"
+  "composer install --no-dev --optimize-autoloader",
+  "php artisan optimize:clear"
 ]
 
 [phases.build]
